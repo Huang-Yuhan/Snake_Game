@@ -55,10 +55,12 @@ void Snake_Game::GameEnd(const int & GameState)
 	if (GameState == WIN)
 	{
 		//游戏胜利
+		game_draw->GameWin();
 	}
 	else
 	{
 		//游戏失败
+		game_draw->GameLose();
 	}
 }
 

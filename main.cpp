@@ -18,8 +18,8 @@ int main()
 		std::cout << "<--------欢迎来到贪吃蛇------->\n";
 		std::cout << "1.开始游戏\n";
 		std::cout << "2.设置地图大小(默认为10*10)\n";
-		std::cout << "3. 退出\n\n\n";
-		std::cout << "4. 设置速度\n";
+		std::cout << "3. 设置速度\n";
+		std::cout << "4. 退出\n\n\n";
 
 		std::cout << "请输入选项：";
 		std::string PlayerInput;
@@ -48,11 +48,11 @@ int main()
 				delete GAME; 
 				break; 
 			}
-			case '3':
+			case '4':
 			{
 				exit(0); 
 			}
-			case '4':
+			case '3':
 			{
 				std::cout << "请选择速度等级(1,2,3)(数字越大速度越慢):";
 				std::cin >> GameSpeed;

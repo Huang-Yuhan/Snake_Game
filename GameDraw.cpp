@@ -51,6 +51,7 @@ void GameDraw::GameWin()
 	cleardevice();
 	LPCTSTR  GameEndOutput = _T("你获得胜利！(5s后自动退出)");
 	outtextxy(length/2, width/2, GameEndOutput);//游戏胜利
+	Sleep(5000);
 }
 
 void GameDraw::GameLose()
@@ -58,4 +59,5 @@ void GameDraw::GameLose()
 	cleardevice();
 	LPCTSTR  GameEndOutput = _T("你失败了！(5s后自动退出)");
 	outtextxy(length / 2, width / 2, GameEndOutput);//游戏失败
+	Sleep(5000);
 }
