@@ -60,18 +60,16 @@ GameDraw::~GameDraw()
 
 void GameDraw::GameWin()
 {
-	LPCTSTR  GameEndOutput = _T("你获得胜利！(5s后自动退出)");
+	LPCTSTR  GameEndOutput = _T("你获得胜利！(按任意键后退出)");
 	outtextxy(1, width/2, GameEndOutput);//游戏胜利
 	while (!_kbhit()) {}
-
-	Sleep(5000);
+	getchar();
 }
 
 void GameDraw::GameLose()
 {
-	LPCTSTR  GameEndOutput = _T("你失败了！(5s后自动退出)");
+	LPCTSTR  GameEndOutput = _T("你失败了！(按任意键后退出)");
 	outtextxy(1, width / 2, GameEndOutput);//游戏失败
 	while (!_kbhit()) {}
-
-	Sleep(5000);
+	getchar();
 }
