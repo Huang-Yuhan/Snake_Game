@@ -7,7 +7,7 @@ GameDraw::GameDraw(int l, int w) :length(l* SideLength), width(w* SideLength)
 
 void GameDraw::init(GameMap &game_map)
 {
-	initgraph(width, length, EW_SHOWCONSOLE);
+	initgraph(width, length);
 	setfillcolor(WHITE);
 	setbkcolor(BLACK);
 	draw(game_map);
@@ -60,16 +60,14 @@ GameDraw::~GameDraw()
 
 void GameDraw::GameWin()
 {
-	LPCTSTR  GameEndOutput = _T("你获得胜利！(按任意键后退出)");
+	LPCTSTR  GameEndOutput = _T("你获得胜利！(5s后退出)");
 	outtextxy(1, width/2, GameEndOutput);//游戏胜利
-	while (!_kbhit()) {}
-	getchar();
+	Sleep(5000);
 }
 
 void GameDraw::GameLose()
 {
-	LPCTSTR  GameEndOutput = _T("你失败了！(按任意键后退出)");
+	LPCTSTR  GameEndOutput = _T("你失败了！(5s后退出)");
 	outtextxy(1, width / 2, GameEndOutput);//游戏失败
-	while (!_kbhit()) {}
-	getchar();
+	Sleep(5000);
 }
