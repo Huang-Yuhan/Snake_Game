@@ -1,7 +1,7 @@
 #pragma once
 #include<GameMap.h>
 #include<graphics.h>
-const int SideLength = 50;//一个格子构成的像素点边长
+const int SideLength = 30;//一个格子构成的像素点边长
 class GameDraw
 {
 private:

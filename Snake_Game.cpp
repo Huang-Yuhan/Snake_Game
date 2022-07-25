@@ -42,7 +42,9 @@ void Snake_Game::GameStart()
 	}
 	else
 	{
+		AIinput.LinkMap(game_map);
 		game_input = &AIinput;
+
 	}	
 	//开始绘图
 	game_draw->init(*game_map);

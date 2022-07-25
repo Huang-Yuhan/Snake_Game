@@ -8,6 +8,7 @@ const short SNAKE_BODY = 1;
 const short FOOD = 2;
 class GameMap
 {
+	friend class GameAIInput;
 	friend class GameDraw;
 private:
 	short** G;//用一个二维地图存储地图
@@ -21,6 +22,7 @@ private:
 	bool istherefood;
 
 public:
+	GameMap(const GameMap& obj);
 	GameMap(const int &l , const int &w );
 	~GameMap();
 	bool MapUpdate(const char & direction);		//如果更新后游戏是否结束

@@ -1,8 +1,8 @@
 #include<Snake_Game.h>
 #include<iostream>
 #include<string>
-int MapLength = 10, MapWidth = 10;//默认地图大小
-int GameSpeed = 3;
+int MapLength = 10,MapWidth = 10;//默认地图大小
+int GameSpeed = 1;
 void MapSizeSet()
 {
 	std::cout << "请设置地图长度:";

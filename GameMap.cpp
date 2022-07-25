@@ -23,7 +23,7 @@ GameMap::~GameMap()
 bool GameMap::MapUpdate(const char &direction)
 {
 	//删除蛇尾，插入新的蛇头
-	std::pair<int, int> SnakeHead = Snake[0], SnakeTail = Snake.back();
+	std::pair<int, int> SnakeHead = Snake.at(0), SnakeTail = Snake.back();
 	Snake.pop_back();
 	//进行蛇身的更新
 	//std::cout << direction << std::endl;
@@ -64,6 +64,8 @@ void GameMap::FoodUpdate()
 	if (FoodAvailable.size() == 0)return;
 	int index = GetRandomNumber(0, FoodAvailable.size() - 1);
 	G[FoodAvailable[index].first][FoodAvailable[index].second] = FOOD;
+	food.first = FoodAvailable[index].first;
+	food.second = FoodAvailable[index].second;
 	istherefood = true;
 }
 
@@ -80,11 +82,26 @@ bool GameMap::FoodUpdateAvailable()
 int GameMap::GetRandomNumber(const int &l, const int &r)
 {
 	srand(time(0));
-	int num = rand();
-	return l + 1.0*num / RAND_MAX * (r - l);
+	int num;
+	for (int i = 5; i;i--)num=rand();
+	return l + 1.0*num * (r*1.0 - l)/RAND_MAX;
 }
 
 bool GameMap::IsThereFood()
 {
 	return istherefood;
+}
+
+GameMap::GameMap(const GameMap& obj)
+{
+	width = obj.width;
+	length = obj.length;
+	G = new short* [length];
+	for (int i = 0; i < length; i++)G[i] = new short[width];
+	for (int i = 0; i < length; i++)
+		for (int j = 0; j < width; j++)
+			G[i][j] = obj.G[i][j];
+	food = obj.food;
+	Snake.assign(obj.Snake.begin(), obj.Snake.end());
+	istherefood = obj.istherefood;
 }
